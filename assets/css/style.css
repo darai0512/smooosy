@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+html {
+    font-size: 62.5%;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    color: #fff;
+    text-align: center;
+    font-size: 1.4rem;
+    font-family: Raleway, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+}
+
+.timeline {
+    background-color: #F7EEE0;
+    padding: 20px 0;
+    color: #F7EEE0;
+}
+.footer {
+    padding: 12px 0;
+    color: #383634;
+    font-size: 1.3rem;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 1.3rem
+    }
+}
+
+@media (min-width: 1000px) {
+}
