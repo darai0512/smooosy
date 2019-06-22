@@ -1,0 +1,14 @@
+{
+  "name": "tanabe",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "body-parser": "^1.18",
+    "express": "^4.17.1"
+  },
+  "license": "GNU GPL v3"
+}

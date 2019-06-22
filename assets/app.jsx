@@ -17,6 +17,9 @@ const {
   InputLabel,
   Select,
   MenuItem,
+  GridList,
+  GridListTile,
+  GridListTileBar,
 } = MaterialUI;
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -40,7 +43,7 @@ const useStyles = makeStyles(theme => ({
     fontSize: 18,
   },
   closeIcon: {
-    fontSize: 18,
+    fontSize: 16,
     float: 'right',
   },
   text: {
@@ -50,7 +53,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(2),
     width: '100%',
     overflowY: 'scroll',
-    height: '57vh',
+    height: '45vh',
   },
   formControl: {
     margin: theme.spacing(1),
@@ -65,9 +68,16 @@ function Timeline(p) {
       <ListItemAvatar>
         <Avatar alt="StoreImage" src={p.image} style={{ borderRadius: 0 }}/>
       </ListItemAvatar>
-      <ListItemText primary={p.name} secondary={p.serviceType} style={{width: '30%'}}/>
-      <ListItemText primary={`${p.afterMinutes}分後`}/>
-      <p><s>{p.price} 円</s>→{p.price * p.discount} 円</p>
+      <ListItemText primary={p.name} secondary={p.serviceType} style={{width: '25%'}}/>
+      <div style={{textAlign: 'center', width: '15%'}}>
+        <div><Icon>schedule</Icon></div>
+        <span>{`${p.afterMinutes}分後`}</span>
+      </div>
+      <div style={{textAlign: 'center', width: '20%'}}>
+        <div><Icon>money_off</Icon></div>
+        <div><s>{p.price} 円</s></div>
+        <div>{p.price * p.discount} 円</div>
+      </div>
       <Icon className={c.closeIcon} onClick={p.deleteFn}>close</Icon>
     </ListItem>
   );
@@ -79,33 +89,52 @@ function Home(p) {
     services: [],
   });
   const c = useStyles();
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(async (pos) => {
-      here.lat = pos.coords.latitude;
-      here.lng = pos.coords.longitude;
-      // const services = await fetch('./getServices', {body: {place: here, id}}).json();
-      const services = [...Array(9)].map((v, i) => {
-        const add = Math.random() > 0.5 ? Math.random() : Math.random() * -1;
-        return {
-          sid: i + 1,
-          name: 'お店の名前',
-          serviceType: "美容・整体",
-          afterMinutes: 30,
-          price: 3000,
-          discount: 0.8,
-          image: './assets/images/sei-tai.png',
-          lat: here.lat + add,
-          lng: here.lng + add,
-        };
-      });
-      setVal(Object.assign({...val}, {services, mode: 'timeline'}));
-    }, () => {
-      setVal(Object.assign({...val}, {mode: 'failed'}));
-    });
-  } else {
-    return (<div className={c.list}>位置情報の取得ができない端末のため本サービスをご利用いただけません。</div>);
-  }
   if (val.mode === 'loading') {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(async (pos) => {
+        here.lat = pos.coords.latitude;
+        here.lng = pos.coords.longitude;
+        if (map) {
+          map.setCenter(here);
+          const marker = new google.maps.Marker({
+            position: here,
+            map,
+            icon: {
+              url: `./images/man.png`,
+            },
+          });
+        }
+        // const services = await fetch('./getServices', {body: {place: here, id}}).json();
+        const services = [...Array(7)].map((v, i) => {
+          const adds = [
+            {lat: 0.005, lng: 0},
+            {lat: 0.005, lng: 0.005},
+            {lat: 0, lng: 0.01},
+            {lat: -0.005, lng: 0.005},
+            {lat: -0.005, lng: 0},
+            {lat: -0.005, lng: -0.005},
+            {lat: 0, lng: -0.01},
+            {lat: 0.005, lng: -0.005},
+          ];
+          return {
+            sid: i + 1,
+            name: `お店の名前 ${i+1}`,
+            serviceType: i % 2 ? '美容室' : '美容・整体',
+            afterMinutes: i < 3 ? 30 : 45,
+            price: i < 3 ? 3000 : 5000,
+            discount: i < 4 ? 0.5 : 0.8,
+            image: `./images/sample${i+1}.jpg`,
+            lat: here.lat + adds[i].lat,
+            lng: here.lng + adds[i].lng,
+          };
+        });
+        setVal(Object.assign({...val}, {services, mode: 'timeline'}));
+      }, () => {
+        setVal(Object.assign({...val}, {mode: 'failed'}));
+      });
+    } else {
+      return (<div className={c.list}>位置情報の取得ができない端末のため本サービスをご利用いただけません。</div>);
+    }
     return (<div className={c.list} style={{textAlign: 'center'}}>
       <CircularProgress />
       <p>'位置情報を取得中です...'</p>
@@ -120,12 +149,13 @@ function Home(p) {
       setVal(Object.assign({...val}, {mode: 'timeline'}));
     }
     const del = function (e) {
+      val.services[val.targetIdx].setMap(null);
       val.services.splice(val.targetIdx, 1);
       setVal(Object.assign({...val}, {
         mode: 'timeline',
       }));
     }
-    const s = val.services[val.targetIdx;
+    const s = val.services[val.targetIdx];
     return (
       <div className={c.list} style={{fontSize: 16}}>
         <p>1 名様まで! あと {s.afterMinutes}分以内</p>
@@ -154,8 +184,23 @@ function Home(p) {
   return (
     <List className={c.list}>{
       val.services.map((v, i)=> {
+        if (!v.marker && map) {
+          v.marker = new google.maps.Marker({
+            position: {lat: v.lat, lng: v.lng},
+            map,
+//            animation: google.maps.Animation.DROP,
+            icon: {
+              url: `./images/2x/baseline_filter_${v.sid}_black_18dp.png`,
+//            scaledSize: new google.maps.Size(30, 30),
+            },
+          });
+          v.marker.addListener('click', function(){
+            setVal(Object.assign({...val}, {mode: 'detail', targetIdx: i}));
+          });
+        }
         v.deleteFn = function (e) {
           e.stopPropagation();
+          if (!v.marker) v.marker.setMap(null);
           val.services.splice(i, 1);
           setVal(Object.assign({...val}));
         }
