@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(2),
     width: '100%',
     overflowY: 'scroll',
-    height: '57vh',
+    height: '45vh', // 57vh
   },
   formControl: {
     margin: theme.spacing(1),
