@@ -93,7 +93,7 @@ function Home(p) {
           afterMinutes: 30,
           price: 3000,
           discount: 0.8,
-          image: './assets/images/sei-tai.png',
+          image: './images/sei-tai.png',
           lat: here.lat + add,
           lng: here.lng + add,
         };
@@ -125,7 +125,7 @@ function Home(p) {
         mode: 'timeline',
       }));
     }
-    const s = val.services[val.targetIdx;
+    const s = val.services[val.targetIdx];
     return (
       <div className={c.list} style={{fontSize: 16}}>
         <p>1 名様まで! あと {s.afterMinutes}分以内</p>
