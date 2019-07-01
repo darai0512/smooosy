@@ -31,11 +31,11 @@
 <body>
 <div id="map"></div>
 <div id="app"></div>
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtWItmpD5EoXftxm5F9cZYCCZiIpmkLTw&v=quarterly"></script>-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtWItmpD5EoXftxm5F9cZYCCZiIpmkLTw&v=quarterly"></script>
 <script>
   var here = {lat: 35.663067, lng: 139.731462}; // around Roppongi
   var map, infoWindow;
-  // google.maps.event.addDomListener(window, 'load', initMap());
+  google.maps.event.addDomListener(window, 'load', initMap());
   // Google API free: 933 requests / day
   // substitude OSS for free: http://www.nowhere.co.jp/blog/archives/20180705-160052.html
   function initMap() {

@@ -149,7 +149,7 @@ function Home(p) {
       setVal(Object.assign({...val}, {mode: 'timeline'}));
     }
     const del = function (e) {
-      val.services[val.targetIdx].setMap(null);
+      val.services[val.targetIdx].marker.setMap(null);
       val.services.splice(val.targetIdx, 1);
       setVal(Object.assign({...val}, {
         mode: 'timeline',
@@ -160,15 +160,9 @@ function Home(p) {
       <div className={c.list} style={{fontSize: 16}}>
         <p>1 名様まで! あと {s.afterMinutes}分以内</p>
         <p>ここに以下のような詳細情報が入ります。</p>
-        <p>サービス詳細</p>
-        <p>店舗HP</p>
-        <p>店舗住所詳細</p>
-        <p>店舗までの行き方</p>
-        <p>店舗電話番号</p>
-        <p>口コミ</p>
-        <p>決済方法(事前決済のみならアプリ上で or 現地支払い)</p>
-        <p>予約すると決済などを経て左下の履歴画面に追加され、そちらでナビゲートが始まり、同時にホーム画面から同時間帯のサービスは削除されます。</p>
-        <p>但し現在は開発中のため予約機能・履歴画面はありません。</p>
+        <p>・サービス詳細 / 店舗HP / 店舗住所詳細 / 店舗までの行き方 / 店舗電話番号 / 口コミ</p>
+        <p>・決済方法(事前決済のみならアプリ上で or 現地支払い)</p>
+        <p>予約すると決済などを経て(左下の)履歴画面に遷移してナビゲートが始まり、またホーム画面から同時間帯のサービスは削除されます（但し現在は開発中のため予約機能・履歴画面はない）</p>
         <Button variant="contained" color="primary" className={c.button}>
           予約する
         </Button>
@@ -188,10 +182,10 @@ function Home(p) {
           v.marker = new google.maps.Marker({
             position: {lat: v.lat, lng: v.lng},
             map,
-//            animation: google.maps.Animation.DROP,
+            animation: google.maps.Animation.DROP,
             icon: {
               url: `./images/2x/baseline_filter_${v.sid}_black_18dp.png`,
-//            scaledSize: new google.maps.Size(30, 30),
+              scaledSize: new google.maps.Size(25, 25),
             },
           });
           v.marker.addListener('click', function(){
@@ -200,7 +194,7 @@ function Home(p) {
         }
         v.deleteFn = function (e) {
           e.stopPropagation();
-          if (!v.marker) v.marker.setMap(null);
+          if (v.marker) v.marker.setMap(null);
           val.services.splice(i, 1);
           setVal(Object.assign({...val}));
         }
