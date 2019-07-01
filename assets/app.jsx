@@ -1,6 +1,5 @@
 const {
   CircularProgress,
-  colors,
   makeStyles,
   Icon,
   Button,
@@ -17,9 +16,6 @@ const {
   InputLabel,
   Select,
   MenuItem,
-  GridList,
-  GridListTile,
-  GridListTileBar,
 } = MaterialUI;
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -60,8 +56,27 @@ const useStyles = makeStyles(theme => ({
     minWidth: 120,
   },
 }));
-function Timeline(p) {
+function CountDown(p) {
+  const [val, setVal] = React.useState({
+    afterSec: p.afterSec,
+  });
+  const intervalSec = val.afterSec > 5 * 60 ? 60 : 1;
+  setTimeout(setVal, intervalSec * 1000, {afterSec: val.afterSec - intervalSec});
+  const remainingDate = new Date(val.afterSec * 1000);
+  if (intervalSec === 1) {
+    const minute = `0${remainingDate.getMinutes()}`.slice(-2);
+    const sec = `0${remainingDate.getSeconds()}`.slice(-2);
+    return (
+      <span>{`${minute}:${sec}`}</span>
+    );
+  }
+  return (
+    <span>{`${remainingDate.getMinutes()}分以内`}</span>
+  );
+}
+function TimelineItem(p) {
   const c = useStyles();
+  setTimeout(p.deleteFn, p.afterSec * 1000);
   return (
     <ListItem button alignItems="flex-start" onClick={p.changeMode}>
       <Icon className={c.timelineIcon}>{`filter_${p.sid}`}</Icon>
@@ -69,9 +84,10 @@ function Timeline(p) {
         <Avatar alt="StoreImage" src={p.image} style={{ borderRadius: 0 }}/>
       </ListItemAvatar>
       <ListItemText primary={p.name} secondary={p.serviceType} style={{width: '25%'}}/>
-      <div style={{textAlign: 'center', width: '15%'}}>
+      <div style={{textAlign: 'center', width: '20%'}}>
         <div><Icon>schedule</Icon></div>
-        <span>{`${p.afterMinutes}分後`}</span>
+        <CountDown afterSec={p.afterSec} />
+        <div>先着1名限り</div>
       </div>
       <div style={{textAlign: 'center', width: '20%'}}>
         <div><Icon>money_off</Icon></div>
@@ -120,7 +136,7 @@ function Home(p) {
             sid: i + 1,
             name: `お店の名前 ${i+1}`,
             serviceType: i % 2 ? '美容室' : '美容・整体',
-            afterMinutes: i < 3 ? 30 : 45,
+            afterSec: i === 0 ? 10 : (i < 3 ? 299 : 30 * 60), // todo 募集終了時刻のタイムスタンプに
             price: i < 3 ? 3000 : 5000,
             discount: i < 4 ? 0.5 : 0.8,
             image: `./images/sample${i+1}.jpg`,
@@ -149,7 +165,7 @@ function Home(p) {
       setVal(Object.assign({...val}, {mode: 'timeline'}));
     }
     const del = function (e) {
-      val.services[val.targetIdx].marker.setMap(null);
+      if (val.services[val.targetIdx].marker) val.services[val.targetIdx].marker.setMap(null);
       val.services.splice(val.targetIdx, 1);
       setVal(Object.assign({...val}, {
         mode: 'timeline',
@@ -158,7 +174,7 @@ function Home(p) {
     const s = val.services[val.targetIdx];
     return (
       <div className={c.list} style={{fontSize: 16}}>
-        <p>1 名様まで! あと {s.afterMinutes}分以内</p>
+        <p>1 名様まで!</p>
         <p>ここに以下のような詳細情報が入ります。</p>
         <p>・サービス詳細 / 店舗HP / 店舗住所詳細 / 店舗までの行き方 / 店舗電話番号 / 口コミ</p>
         <p>・決済方法(事前決済のみならアプリ上で or 現地支払い)</p>
@@ -193,7 +209,7 @@ function Home(p) {
           });
         }
         v.deleteFn = function (e) {
-          e.stopPropagation();
+          if (e) e.stopPropagation();
           if (v.marker) v.marker.setMap(null);
           val.services.splice(i, 1);
           setVal(Object.assign({...val}));
@@ -204,7 +220,7 @@ function Home(p) {
           // if (v.sid === 1) setVal(Object.assign({...val}, {mode: 'outofservice', targetIdx: i}));
           setVal(Object.assign({...val}, {mode: 'detail', targetIdx: i}));
         }
-        return (<Timeline {...v} />);
+        return (<TimelineItem {...v} />);
       })
     }</List>
   );
