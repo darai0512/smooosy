@@ -31,22 +31,22 @@
 <body>
 <div id="map"></div>
 <div id="app"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtWItmpD5EoXftxm5F9cZYCCZiIpmkLTw&v=quarterly"></script>
 <script>
-  var here = {lat: 35.682, lng: 139.725}; // around yotsuya
+  var here = {lat: 35.663067, lng: 139.731462}; // around Roppongi
   var map, infoWindow;
+  google.maps.event.addDomListener(window, 'load', initMap());
   // Google API free: 933 requests / day
   // substitude OSS for free: http://www.nowhere.co.jp/blog/archives/20180705-160052.html
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: here,
-      zoom: 14
+      zoom: 14,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      mapTypeControl: false,
+      fullscreenControl: false,
     });
-    infoWindow = new google.maps.InfoWindow;
-    infoWindow.setPosition(here);
-    infoWindow.setContent('Location found.');
-    infoWindow.open(map);
-    map.setCenter(here);
+    // infoWindow = new google.maps.InfoWindow;
   }
 </script>
-<script type="text/babel" src="./app.jsx"></script><!--transpileが非同期のため実行は一番最後と思っておくコト-->
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtWItmpD5EoXftxm5F9cZYCCZiIpmkLTw&callback=initMap"></script>
+<script async defer type="text/babel" src="./app.jsx"></script><!--transpileが非同期のため実行は一番最後と思っておくコト-->
