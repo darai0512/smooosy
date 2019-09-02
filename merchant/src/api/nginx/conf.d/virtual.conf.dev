@@ -1,0 +1,30 @@
+server {
+  listen  80;
+  server_name  dev.smooosy.com;
+  charset  utf-8;
+
+  large_client_header_buffers 4 32k;
+
+  proxy_set_header Host $http_host;
+  proxy_set_header X-Real-IP $remote_addr;
+
+  location = /ping {
+    empty_gif;
+    access_log off;
+    break;
+  }
+
+  location ~ ^/(images|assets|css|js)/ {
+    expires 30d;
+    root /var/www/smooosy/merchant/dist/public;
+  }
+
+  location ~ ^/tools/(images|assets|js)/ {
+    expires 30d;
+    root /var/www/smooosy/merchant/dist/public;
+  }
+
+  location / {
+    proxy_pass http://localhost:3232;
+  }
+}

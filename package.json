@@ -1,14 +1,24 @@
 {
-  "name": "tanabe",
-  "version": "0.0.1",
   "private": true,
+  "engines": {
+    "node": "^12.6.0"
+  },
+  "workspaces": [
+    "merchant",
+    "config"
+  ],
   "scripts": {
-    "start": "node server.js",
-    "build": "webpack"
+    "dev": "run-p dev:*",
+    "dev:config": "cd config && yarn dev",
+    "dev:web": "cd merchant && yarn dev"
   },
-  "dependencies": {
-    "body-parser": "^1.18",
-    "express": "^4.17.1"
+  "devDependencies": {
+    "npm-run-all": "^4.1.2",
+    "nodemon": "^1.19.1",
+    "pm2": "2.10.4"
   },
-  "license": "GNU GPL v3"
+  "resolutions": {
+    "react": "16.8.6",
+    "react-dom": "16.8.6"
+  }
 }

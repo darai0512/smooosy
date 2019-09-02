@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta property="og:title" content="コトの在庫処分" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="./images/ogp.jpg" />
+  <title>SMOOOSY - あの人気店のドタキャンをお得にあなたへ</title>
+  <link rel="shortcut icon" href="images/favicon.ico" >
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <script src="https://unpkg.com/react@latest/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@latest/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@material-ui/core@latest/umd/material-ui.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <style>
+    #map {
+      height: 33vh;
+    }
+    html, body {
+      height: 100%;
+      font-size: 62.5%;
+    }
+  </style>
+</head>
+<body>
+<div id="map"></div>
+<div id="app"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtWItmpD5EoXftxm5F9cZYCCZiIpmkLTw&v=quarterly"></script>
+<script>
+  var here = {lat: 35.663067, lng: 139.731462}; // around Roppongi
+  var map, infoWindow;
+  google.maps.event.addDomListener(window, 'load', initMap());
+  // Google API free: 933 requests / day
+  // substitude OSS for free: http://www.nowhere.co.jp/blog/archives/20180705-160052.html
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: here,
+      zoom: 14,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      mapTypeControl: false,
+      fullscreenControl: false,
+      // disableDefaultUI: false,
+    });
+    // infoWindow = new google.maps.InfoWindow;
+  }
+</script>
+<script async defer type="text/babel" src="./app.jsx"></script><!--transpileが非同期のため実行は一番最後と思っておくコト-->

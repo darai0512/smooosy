@@ -1,0 +1,14 @@
+.DS_Store
+node_modules
+npm-debug.log
+yarn-error.log
+package-lock.json
+/logs/
+!/logs/.gitkeep
+coverage
+.nyc_output
+.idea
+.dump.rdb
+.env
+.bigquery_key.js
+*.build.js

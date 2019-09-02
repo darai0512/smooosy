@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="robots" content="none">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#8fc320">
+  <title>SMOOOSY tools</title>
+  <link rel="shortcut icon" href="/tools/favicon.ico">
+  <style>
+   * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+   }
+   html, body {
+     height: 100%;
+   }
+   @font-face {
+     font-family: "Yu Gothic M";
+     src: local("Yu Gothic Medium");
+   }
+   @font-face {
+     font-family: "Yu Gothic M";
+     src: local("Yu Gothic Bold");
+     font-weight: bold;
+   }
+   body {
+     overflow: hidden;
+     font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", HelveticaNeue, "Segoe UI", "Yu Gothic M", "游ゴシック Medium", "Yu Gothic Medium", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, sans-serif;
+   }
+   #root {
+     height: 100%;
+     position: relative;
+   }
+   :-webkit-autofill {
+     -webkit-box-shadow: 0 0 0 1000px white inset !important;
+   }
+   .input[type="text"] {
+     border: none;
+     appearance: none;
+     padding: .5em .6em;
+     display: inline-block;
+     border: 1px solid #ccc;
+     border-radius: 4px;
+     vertical-align: middle;
+   }
+   .input[type="text"]:focus {
+     outline: 0;
+     border-color: #129FEA;
+   }
+   a {
+     text-decoration: none;
+     color: #448AFF;
+     cursor: pointer;
+   }
+   a:hover {
+     color: #82B1FF;
+   }
+   ul, ol {
+     margin: 0.5em 0 0.5em 2em;
+     line-height: 1.8;
+   }
+   table.medium-editor-table {
+     margin: 20px auto;
+     width: 100%;
+     max-width: 700px;
+     border-collapse: collapse;
+     table-layout: auto;
+     background: #ffffff;
+     border: 1px solid #E0E0E0;
+   }
+   table.medium-editor-table tr:nth-child(even) {
+     background: #f3f3f3;
+   }
+   table.medium-editor-table td {
+     min-width: 100px;
+     padding: 4px 8px;
+     border-color: #E0E0E0;
+     border-width: 0 1px 0 0;
+     border-style: solid;
+   }
+   table.medium-editor-table tr:before {
+     display: block;
+     float: left;
+     height: 58px;
+     content: "";
+   }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/javascript" src="//media.twiliocdn.com/sdk/js/client/v1.4/twilio.min.js"></script>
+  <script type="text/javascript" src="//media.twiliocdn.com/taskrouter/js/v1.12/taskrouter.min.js"></script>
+</body>
+</html>

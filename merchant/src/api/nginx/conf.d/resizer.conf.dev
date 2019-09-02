@@ -1,0 +1,74 @@
+
+server {
+  listen 8080;
+  server_name localhost;
+  client_max_body_size 50m;
+  image_filter_buffer 50m;
+  image_filter_jpeg_quality 80;
+  image_filter_interlace on;
+
+  access_log off;
+  resolver 8.8.8.8 valid=2s;
+  set $s3host smooosy-dev.s3-ap-northeast-1.amazonaws.com;
+
+  location ~ "^\/img\/(.+\.(png|jpg|gif))$" {
+    set $file $1;
+
+    if ($query_string !~ .*=.*) {
+      rewrite ^ /original last;
+    }
+
+    if ($query_string ~ ([0-9]+)) {
+      set $date $1;
+    }
+
+    if ($arg_w ~ (\d+|-)) {
+      set $width $1;
+    }
+
+    if ($arg_h ~ (\d+|-)) {
+      set $height $1;
+    }
+
+    if ($arg_r ~ (\d+)) {
+      set $deg $1;
+    }
+
+    if ($arg_t = 'm') {
+      rewrite ^ /master last;
+    }
+
+    if ($arg_t = 'r') {
+      rewrite ^ /resize last;
+    }
+    rewrite ^ /crop last;
+  }
+
+  location /original {
+    internal;
+    proxy_pass http://$s3host/$file;
+  }
+  location /master {
+    internal;
+    proxy_pass http://$s3host/$file;
+    image_filter resize 1280 1280;
+    error_page 415 = @empty;
+  }
+  location /resize {
+    internal;
+    proxy_pass http://localhost:8080/img/$file?$date&t=m;
+    image_filter resize $width $height;
+    image_filter rotate $deg;
+    error_page 415 = @empty;
+  }
+  location /crop {
+    internal;
+    proxy_pass http://localhost:8080/img/$file?$date&t=m;
+    image_filter crop $width $height;
+    image_filter rotate $deg;
+    error_page 415 = @empty;
+  }
+  location @empty {
+    empty_gif;
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "name": "@smooosy/config",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "jsnext:main": "./src/index.js",
+  "side-effects": false,
+  "module": "./src/index.js",
+  "scripts": {
+    "dev": "babel src/ -w -d dist/",
+    "build": "babel src/ -d dist/"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.1"
+  }
+}

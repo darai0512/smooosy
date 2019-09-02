@@ -1,0 +1,12 @@
+# robots.txtはdeploy.shで本番のみdeployされる
+User-Agent:*
+Disallow: /tools/
+Disallow: /account/
+Disallow: /requests/
+Disallow: /pros/
+Disallow: /new-requests/
+Disallow: /signup-pro-direct$
+Disallow: /policies/law
+Disallow: /images/tel.png
+
+Sitemap:https://smooosy.com/sitemap.xml

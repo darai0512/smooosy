@@ -1,0 +1,32 @@
+version: "3.7"
+volumes:
+  mongodb-volume:
+    driver: 'local'
+#    driver_opts:
+#      type: none
+#      device: $PWD/${DB_PATH}
+#      o: bind
+x-app-base: &app-base
+  build:
+    context: ./app
+services:
+  app-web:
+    <<: *app-base
+    environment:
+      PORT: 8080
+    ports:
+      - 8080:8080
+  mongodb:
+    image: mongo:4.2.0-rc8-bionic
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: root
+#      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - 27018:27017
+    volumes:
+      - mongodb-volume:/data/db
+    command: mongod # --replSet "rs-smooosy"
+  redis:
+    image: redis:4
+    ports:
+      - 6378:6379

@@ -1,0 +1,32 @@
+.markdown h1 {
+  text-align: center;
+}
+.markdown h2 {
+  border-bottom: 2px solid rgb(143, 195, 32);
+  margin: 32px 0px 16px 0px;
+}
+.markdown h3 {
+  margin: 32px 16px 16px 16px;
+}
+.markdown p {
+  margin: 16px;
+}
+.markdown ol li {
+  margin: 8px;
+}
+.markdown ul li {
+  margin: 8px;
+}
+.markdown dl {
+  padding-left: 32px;
+}
+.markdown dt {
+  font-weight: bold;
+}
+.markdown dd {
+  margin-bottom: 16px;
+}
+.markdown footer {
+  margin-top: 64px;
+  text-align: right;
+}

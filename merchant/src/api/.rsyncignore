@@ -1,0 +1,5 @@
+node_modules
+.git
+deploy.sh
+deploy-mailcheck.sh
+.env

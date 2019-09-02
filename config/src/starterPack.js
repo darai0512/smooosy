@@ -1,0 +1,38 @@
+const starterPack = {
+  totalPoints: {
+    'default': 50,
+    'photographers': 90,
+    'cleaning': 40,
+    'website-development': 400,
+    'remodel': 50,
+    'housework-childcare': 20,
+    'terminator': 80,
+    'administrative-scrivener': 200,
+    'labor-consultant':  300,
+    'car-maintenance': 20,
+    'tax-accountant': 270,
+    'gardening': 40,
+    'videographers': 130,
+    'video-production': 130,
+    'utilityman': 50,
+  },
+  pointBackDays: {
+    'default': 7,
+    'photographers': 7,
+    'cleaning': 7,
+    'website-development': 14,
+    'remodel': 14,
+    'housework-childcare': 7,
+    'terminator': 14,
+    'administrative-scrivener': 7,
+    'labor-consultant':  14,
+    'car-maintenance': 7,
+    'tax-accountant': 14,
+    'gardening': 7,
+    'videographers': 14,
+    'video-production': 14,
+    'utilityman': 7,
+  },
+}
+
+export default starterPack

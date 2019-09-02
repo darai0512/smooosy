@@ -1,0 +1,7 @@
+### matching
+- all modules common to many matching algorithms
+- instant matching
+- new pro request matching
+
+### matching/requestBased
+- all variations of request-based matching, as well as index file where we decide which matching algorithm to use for a given request

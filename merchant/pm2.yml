@@ -1,0 +1,15 @@
+apps:
+  - name: api
+    script: dist/node/src/api/server.js
+    instances: 0
+    exec_mode: cluster
+    instance_var: INSTANCE_ID
+    env_development:
+      NODE_ENV: development
+    env_dev:
+      NODE_ENV: dev
+    env_production:
+      NODE_ENV: production
+    output: logs/api-output.log
+    error: logs/api-error.log
+    merge_logs: true

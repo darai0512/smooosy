@@ -1,0 +1,49 @@
+
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  background: #f5f5f5;
+  touch-action: manipulation;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+}
+@font-face {
+  font-family: "Yu Gothic M";
+  src: local("Yu Gothic Medium");
+}
+@font-face {
+  font-family: "Yu Gothic M";
+  src: local("Yu Gothic Bold");
+  font-weight: bold;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", HelveticaNeue, "Segoe UI", "Yu Gothic M", "游ゴシック Medium", "Yu Gothic Medium", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, sans-serif;
+}
+#root {
+  height: 100%;
+  position: relative;
+}
+:-webkit-autofill {
+  box-shadow: 0 0 0 1000px white inset;
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+a {
+  text-decoration: none;
+  color: #448AFF;
+  cursor: pointer;
+}
+a:hover {
+  opacity: .9;
+}
+input:disabled, textarea:disabled {
+  background: #FCFCFC;
+}
+ul, ol {
+  margin: 0.5em 0 0.5em 2em;
+  line-height: 1.8;
+}

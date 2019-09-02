@@ -1,0 +1,49 @@
+{
+  "creationTime": "1519113206578",
+  "etag": "\"fxz8O53ySp5NTVj5DEaTLWZ1mro/MTUxOTExMzIwNjU3OA\"",
+  "id": "x-micron-158015:smooosy.searchconsole_summary",
+  "kind": "bigquery#table",
+  "lastModifiedTime": "1519113206578",
+  "numBytes": "0",
+  "numLongTermBytes": "0",
+  "numRows": "0",
+  "schema": {
+    "fields": [
+      {
+        "mode": "REQUIRED",
+        "name": "date",
+        "type": "TIMESTAMP"
+      },
+      {
+        "mode": "REQUIRED",
+        "name": "clicks",
+        "type": "INTEGER"
+      },
+      {
+        "mode": "REQUIRED",
+        "name": "impressions",
+        "type": "INTEGER"
+      },
+      {
+        "mode": "REQUIRED",
+        "name": "ctr",
+        "type": "FLOAT"
+      },
+      {
+        "mode": "REQUIRED",
+        "name": "rank",
+        "type": "FLOAT"
+      }
+    ]
+  },
+  "selfLink": "https://www.googleapis.com/bigquery/v2/projects/x-micron-158015/datasets/smooosy/tables/searchconsole_summary",
+  "tableReference": {
+    "datasetId": "smooosy",
+    "projectId": "x-micron-158015",
+    "tableId": "searchconsole_summary"
+  },
+  "timePartitioning": {
+    "type": "DAY"
+  },
+  "type": "TABLE"
+}

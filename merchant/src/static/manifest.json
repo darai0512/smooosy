@@ -1,0 +1,41 @@
+{
+  "short_name": "SMOOOSY",
+  "name": "SMOOOSY",
+  "icons": [
+    {
+      "src": "images/icon-ldpi.png",
+      "type": "image/png",
+      "sizes": "36x36"
+    },
+    {
+      "src": "images/icon-mdpi.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "images/icon-hdpi.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "images/icon-xhdpi.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "images/icon-xxhdpi.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "images/icon-xxxhdpi.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fff",
+  "theme_color": "#8fc320"
+}

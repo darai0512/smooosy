@@ -1,0 +1,29 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  // This file should go into {$workspaceFolder}/.vscode
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run test at line",
+      "type": "shell",
+      "command": "node ${workspaceFolder}/merchant/devtools/run_single_test/run_single_test.js ${file} ${lineNumber}",
+      "options": {
+        "cwd": "${workspaceFolder}/merchant"
+      },
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    }
+  ]
+}

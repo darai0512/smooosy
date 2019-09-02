@@ -1,0 +1,63 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2019",
+    "moduleResolution": "node",
+    "lib": [
+      "dom",
+      "es2019.array"
+    ],
+    "jsx": "react",
+
+    // skip type checking of declaration files.
+    "skipLibCheck": true,
+
+    // generate .map files.
+    "sourceMap": true,
+
+    "removeComments": false,
+
+    // Disallow inconsistently-cased references to the same file.
+    "forceConsistentCasingInFileNames": true,
+
+    // no emit errors around decorators in React class.
+    "experimentalDecorators": true,
+
+    // incremental build
+    "incremental": true,
+
+    // disallow unused locals.
+    "noUnusedLocals": true,
+
+    "strictNullChecks": false,
+    "strictFunctionTypes": false,
+    "strictBindCallApply": false,
+    "strictPropertyInitialization": false,
+
+    // want to make these true :)
+    "noImplicitAny": false,
+    "noImplicitReturns": false,
+    "noImplicitThis": false,
+
+    // make transpiling with js possible
+    "allowJs": true,
+
+    "resolveJsonModule": true,
+
+    "baseUrl": ".",
+
+    "outDir": "./dist/@smooosy",
+  },
+  "include": [
+    "./src/api/models/*",
+    "./src/api/lib/**/*",
+    "./index.ts",
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    ".DS_Store"
+  ]
+}

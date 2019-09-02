@@ -1,0 +1,248 @@
+{
+  "creationTime": "1510540348143",
+  "etag": "oNJhE/6xUnJbwz4b53l2Tw==",
+  "id": "x-micron-158015:smooosy.web",
+  "kind": "bigquery#table",
+  "lastModifiedTime": "1536761290806",
+  "location": "US",
+  "numBytes": "14787390154",
+  "numLongTermBytes": "7546908934",
+  "numRows": "11418224",
+  "schema": {
+    "fields": [
+      {
+        "mode": "REQUIRED",
+        "name": "instance_id",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "user_id",
+        "type": "STRING"
+      },
+      {
+        "mode": "REQUIRED",
+        "name": "timestamp",
+        "type": "TIMESTAMP"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "visit_count",
+        "type": "INTEGER"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "continuous_visit_days",
+        "type": "INTEGER"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "last_visit_date",
+        "type": "TIMESTAMP"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "first_visit_date",
+        "type": "TIMESTAMP"
+      },
+      {
+        "mode": "REQUIRED",
+        "name": "user_type",
+        "type": "INTEGER"
+      },
+      {
+        "mode": "REQUIRED",
+        "name": "event_type",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "event",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "browser_name",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "browser_version",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "user_agent",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "reffer",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "platform",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "language",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "current_page",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "history",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "cookie",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "ga_id",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "finger_print",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "global_ip",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "latitude",
+        "type": "FLOAT"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "longitude",
+        "type": "FLOAT"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "country_name",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "region_name",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "city",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "request_count",
+        "type": "INTEGER"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "meet_count",
+        "type": "INTEGER"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "hired_count",
+        "type": "INTEGER"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "acquisition_point",
+        "type": "INTEGER"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "limited_point",
+        "type": "INTEGER"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "charge_point",
+        "type": "INTEGER"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "consume_point",
+        "type": "INTEGER"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "last_request_service",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "last_meet_service",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "last_hired_service",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "register_user_date",
+        "type": "TIMESTAMP"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "register_pro_date",
+        "type": "TIMESTAMP"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "register_services",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "refound_count",
+        "type": "INTEGER"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "landing_page",
+        "type": "STRING"
+      },
+      {
+        "name": "id",
+        "type": "STRING"
+      },
+      {
+        "name": "amp_id",
+        "type": "STRING"
+      }
+    ]
+  },
+  "selfLink": "https://www.googleapis.com/bigquery/v2/projects/x-micron-158015/datasets/smooosy/tables/web",
+  "streamingBuffer": {
+    "estimatedBytes": "7431499",
+    "estimatedRows": "4405",
+    "oldestEntryTime": "1536758400000"
+  },
+  "tableReference": {
+    "datasetId": "smooosy",
+    "projectId": "x-micron-158015",
+    "tableId": "web"
+  },
+  "timePartitioning": {
+    "type": "DAY"
+  },
+  "type": "TABLE"
+}

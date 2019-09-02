@@ -1,0 +1,197 @@
+<mjml>
+  <mj-head>
+    <mj-attributes>
+      <mj-all padding="0px"></mj-all>
+      <mj-text font-family="Ubuntu, Helvetica, Arial, sans-serif" padding="0 15px" font-size="13px"></mj-text>
+      <mj-section background-color="#ffffff"></mj-section>
+      <mj-class name="preheader" color="#000000" font-size="11px"></mj-class>
+      <mj-title>{{subject}}</mj-title>
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color="#FFFFFF">
+    <mj-section padding-bottom="10px" padding-top="10px">
+      <mj-column width="30%">
+        <mj-image src="https://smooosy.com/img/static/email/logo.png" />
+      </mj-column>
+    </mj-section>
+    <mj-wrapper border="1px solid #F5F5F5" border-top="none">
+      <mj-section>
+        {{#if mapImage}}
+          <mj-column width="100%">
+            <mj-image src="{{mapImage}}" alt="header image" padding="0px"></mj-image>
+          </mj-column>
+        {{/if}}
+        <mj-group width="100%">
+          <mj-column width="17%">
+            <mj-image width="90px" padding-top="10px" padding-left="10px" align="left" src="https://smooosy.com/img/static/email/profile.png" />
+          </mj-column>
+          <mj-column width="83%">
+            <mj-text font-size="20px" padding-top="20px">{{heading}}</mj-text>
+            <mj-button align="left" padding="20px 15px" inner-padding="6px 10px" background-color="#3F51B5" color="#FFFFFF" border-radius="15px">ご指名依頼</mj-button>
+          </mj-column>
+        </mj-group>
+      </mj-section>
+      <mj-section padding-top="20px" padding-left="10px">
+        <mj-group width="100%">
+          <mj-column width="7%">
+            <mj-image width="25px" align="left" src="https://smooosy.com/img/static/email/location.png" />
+          </mj-column>
+          <mj-column width="40%">
+            <mj-text font-size="16px" padding-top="3px" padding-left="1px">{{prefecture}}{{city}}</mj-text>
+          </mj-column>
+        </mj-group>
+      </mj-section>
+      {{#if dates}}
+        <mj-section padding-top="10px" padding-left="10px">
+          <mj-group width="100%">
+            <mj-column width="7%">
+              <mj-image width="20px" padding-left="3px" padding-bottom="5px" align="left" src="https://smooosy.com/img/static/email/calendar.png" />
+            </mj-column>
+            <mj-column width="15%">
+              <mj-text font-size="16px" padding-top="3px" padding-left="0px" padding-right="0px">
+                日時:
+              </mj-text>
+            </mj-column>
+            <mj-column width="73%">
+              {{#each dates}}
+                <mj-text font-size="16px" padding-top="3px" padding-left="0px">
+                  {{text}}
+                </mj-text>
+              {{/each}}
+            </mj-column>
+          </mj-group>
+        </mj-section>
+      {{/if}}
+      <mj-section>
+        <mj-column padding="20px">
+          <mj-button href="{{webOrigin}}/pros/waiting/{{meet_id}}" font-size="18px" background-color="#3478C1" color="#FFFFFF" inner-padding="10px 60px">
+            詳細を見る
+          </mj-button>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+    <mj-section>
+      <mj-column>
+        <mj-spacer height="30px" />
+      </mj-column>
+    </mj-section>
+    <mj-wrapper border="1px solid #F5F5F5">
+      <mj-section padding="15px 10px" background-color="#F5F5F5">
+        <mj-column width="100%">
+          <mj-text font-size="20px" padding-left="0px">依頼内容</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section padding="15px 10px">
+        <mj-column width="100%">
+          {{#each questions}}
+            <mj-text font-size="15px" font-weight="bold" padding-left="0px" padding-bottom="10px">{{label}}</mj-text>
+            {{#each answers}}
+              <mj-text font-size="15px" padding-left="0px" padding-bottom="6px">
+                {{#if checked}}
+                  <span style="color: #1180cc;">✓ </span>
+                {{else if unchecked}}
+                  <span style="color: #ff5a5f;">✕</span>
+                {{/if}}
+                {{text}}
+              </mj-text>
+              {{#if image}}
+                <mj-image width="60px" height="40px" padding-top="5px" padding-bottom="10px" align="left" src="{{image}}&w=60&h=40" />
+              {{/if}}
+            {{/each}}
+            <mj-divider padding-top="15px" padding-bottom="10px" border-width="2px" border-color="#F5F5F5" />
+          {{/each}}
+        </mj-column>
+      </mj-section>
+      <mj-section>
+        <mj-group>
+          <mj-column padding="20px">
+            <mj-button href="{{webOrigin}}/pros/waiting/{{meet_id}}" font-size="18px" background-color="#3478C1" color="#FFFFFF" inner-padding="10px 60px">
+              詳細を見る
+            </mj-button>
+          </mj-column>
+        </mj-group>
+      </mj-section>
+    </mj-wrapper>
+    <mj-section padding-top="20px">
+      <mj-column>
+        <mj-text font-weight="bold" font-size="15px">
+          応募後の流れ
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section padding-top="20px">
+      <mj-column width="92%">
+        <mj-text font-weight="bold" font-size="15px">
+          1. チャットで会話
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section>
+      <mj-column width="87%">
+        <mj-text font-size="15px" padding-top="8px" padding-right="30px">
+          SMOOOSY上のチャットで、依頼主と詳細を話しましょう。チャットではいつでも・どちらからでもメッセージが送れます。
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section padding-top="20px">
+      <mj-column width="92%">
+        <mj-text font-weight="bold" font-size="15px">
+          2. 依頼者が選択
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section>
+      <mj-column width="87%">
+        <mj-text font-size="15px" padding-top="8px" padding-right="30px">
+          あなたに頼むことを決めた場合、依頼者は「決定する」ボタンを押します。
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section padding-top="20px">
+      <mj-column width="92%">
+        <mj-text font-weight="bold" font-size="15px">
+          3. サービス提供
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section>
+      <mj-column width="87%">
+        <mj-text font-size="15px" padding-top="8px" padding-right="30px">
+          詳細を確認してサービスを提供しましょう。支払いは依頼者と直接やりとりします。
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section padding-top="20px">
+      <mj-column width="92%">
+        <mj-text font-weight="bold" font-size="15px">
+          4. クチコミ依頼
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section>
+      <mj-column width="87%">
+        <mj-text font-size="15px" padding-top="8px" padding-right="30px">
+          クチコミは今後の受注を増やす重要ポイントです。サービス提供が終わったら、「クチコミ依頼」ボタンからレビューを依頼しましょう。
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section>
+      <mj-column>
+        <mj-divider padding-top="20px" padding-bottom="10px" border-width="2px" border-color="#F5F5F5" />
+      </mj-column>
+    </mj-section>
+    <mj-section>
+      <mj-column width="30%">
+        <mj-image src="https://smooosy.com/img/static/email/logo.png" />
+      </mj-column>
+    </mj-section>
+    <mj-section padding-top="10px" padding-bottom="10px">
+      <mj-column width="40%">
+        <mj-text font-size="10px" align="center"><a href="mailto:info@smooosy.biz">お問い合わせ</a>・<a href="{{webOrigin}}/account/notification">メール受信設定</a></mj-text>
+        <mj-text color="#a9a9a9" font-size="10px" align="center" padding-top="10px">
+          株式会社SMOOOSY 東京都港区赤坂2-22-19-601
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
