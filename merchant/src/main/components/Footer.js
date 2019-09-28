@@ -30,6 +30,7 @@ class Footer extends React.PureComponent {
           <div className={classes.menuWrap}>
             <div className={classes.menu}>
               <h3 className={classes.title}>SMOOOSYについて</h3>
+              <div className={classes.list}><a className={classes.link} href='/'>トップ</a></div>
               <div className={classes.list}><a className={classes.link} href='/company' target='_blank'>会社概要</a></div>
               <div className={classes.list}><a className={classes.link} href='https://help.smooosy.com/' target='_blank' rel='noopener noreferrer'>お問い合わせ</a></div>
             </div>

@@ -23,9 +23,7 @@ const NotFound = ({classes}) => {
 
   const list = [
     {title: 'トップ', link: '/'},
-    {title: 'サービス一覧', link: '/services'},
-    {title: 'SMOOOSYメディア', link: '/media'},
-    {title: 'プロとして登録', link: '/pro'},
+    {title: '事業者登録', link: '/pro'},
   ]
 
 
@@ -73,29 +71,6 @@ const NotFound = ({classes}) => {
           </div>
         </div>
       </CoverImages>
-      <Container className={classes.container}>
-        <div style={{margin: '20px 0', display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
-          <div className={classes.menuWrap}>
-            <div className={classes.menu}>
-              <div key='subtitle' className={classes.subtitle}>ページから探す</div>
-              <div key='box' className={classes.box}>
-                <List>
-                  {
-                    list.length > 0 &&
-                    list.map((li, idx) => <Link key={idx} to={li.link}><ListItem button className={classes.list}>{li.title}</ListItem></Link>)
-                  }
-                </List>
-              </div>
-            </div>
-            <div>
-              <h2 className={classes.header}>カテゴリから探す</h2>
-              <div className={classes.wrap}>
-                {cards}
-              </div>
-            </div>
-          </div>
-        </div>
-      </Container>
       <Footer />
     </div>
   )

@@ -56,6 +56,7 @@ const InstantResultsPage    = loadable(() => import(/* webpackChunkName: 'instan
 
 const ProDashboard          = loadable(() => import(/* webpackChunkName: 'dashboard' */ 'components/pros/Dashboard'))
 const ProRequestList        = loadable(() => import(/* webpackChunkName: 'requestlist' */ 'components/pros/RequestList'))
+const ProRequest        = loadable(() => import(/* webpackChunkName: 'request' */ 'components/pros/Request'))
 const ProBoard              = loadable(() => import(/* webpackChunkName: 'board' */ 'components/pros/Board'))
 const ProBookingPage        = loadable(() => import(/* webpackChunkName: 'booking' */ 'components/pros/BookingPage'))
 const SchedulePage          = loadable(() => import(/* webpackChunkName: 'schedule' */ 'components/pros/SchedulePage'))
@@ -184,6 +185,7 @@ const App = () => (
     <AppRoute proMode needLogin exact proOnly path='/pros/schedules/:id/edit' component={ScheduleEdit} />
     <AppRoute proMode needLogin fixedHeight exact proOnly path='/pros/matchmore' component={AboutMatchMore} />
     <AppRoute proMode needLogin exact proOnly path='/pros/requests' component={ProRequestList} />
+    <AppRoute proMode needLogin exact proOnly path='/pros/new-requests' component={ProRequest} />
     <AppRoute proMode needLogin exact proOnly path='/pros' component={ProDashboard} />
     <AppRoute proMode needLogin fixedHeight exact proOnly path='/pros/:tab' component={ProBoard} />
     <AppRoute proMode needLogin fixedHeight exact proOnly path='/pros/:tab/:id' component={ProBoard} />

@@ -74,10 +74,10 @@ const ProDashboard = ({notices, width, theme}) => {
           <CampaignBanner />
           <TaskBar />
         </div>
-        <Typography variant={width === 'xs' ? 'h5' : 'h4'} style={{display: 'flex', alignItems: 'center', margin: 20}}>プロダッシュボード<IconButton onClick={() => onboarding.handleOpen()}><InfoIcon style={{width: 32, height: 32, color: orange[500]}}/></IconButton></Typography>
+        <Typography variant={width === 'xs' ? 'h5' : 'h4'} style={{display: 'flex', alignItems: 'center', margin: 20}}>ダッシュボード<IconButton onClick={() => onboarding.handleOpen()}><InfoIcon style={{width: 32, height: 32, color: orange[500]}}/></IconButton></Typography>
         <div style={styles.wrap}>
           <div style={styles.item}>
-            <Link style={styles.link} to='/pros/requests'>
+            <Link style={styles.link} to='/pros/new-requests'>
               {requestNoticeCount ?
                 <Badge badgeContent={requestNoticeCount} color='primary'>
                   <FiberNewIcon style={{...styles.icon, color: red[500]}} />
@@ -85,19 +85,7 @@ const ProDashboard = ({notices, width, theme}) => {
               :
                 <FiberNewIcon style={{...styles.icon, color: red[500]}} />
               }
-              <div>新規案件一覧</div>
-            </Link>
-          </div>
-          <div style={styles.item}>
-            <Link style={styles.link} to='/pros/talking'>
-              {talkingNoticeCount ?
-                <Badge badgeContent={talkingNoticeCount} color='primary'>
-                  <QuestionAnswerIcon style={{...styles.icon, color: cyan[500]}} />
-                </Badge>
-              :
-                <QuestionAnswerIcon style={{...styles.icon, color: cyan[500]}} />
-              }
-              <div>交渉中</div>
+              <div>新規募集</div>
             </Link>
           </div>
           <div style={styles.item}>
@@ -109,7 +97,7 @@ const ProDashboard = ({notices, width, theme}) => {
               :
                 <CheckCircleIcon style={{...styles.icon, color: secondary.main}} />
               }
-              <div>成約</div>
+              <div>成約一覧</div>
             </Link>
           </div>
           <div style={styles.item}>
@@ -133,40 +121,8 @@ const ProDashboard = ({notices, width, theme}) => {
           <div style={styles.item}>
             <Link style={styles.link} to='/account/services'>
               <List style={{...styles.icon, color: amber[600]}} />
-              <div>サービス一覧</div>
+              <div>スケジュール管理</div>
             </Link>
-          </div>
-          <div style={styles.item}>
-            <div style={styles.link}>
-              <div>その他</div>
-              <div>
-                <Button color='primary' style={styles.button} component={Link} to='/account/points'>
-                  ポイント管理
-                </Button>
-                <Button color='primary' style={styles.button} component={Link} to='/account/templates'>
-                  返信定型文
-                </Button>
-                <Button color='primary' style={styles.button} component={Link} to='/account/referrals'>
-                  プロを紹介
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div style={styles.item}>
-            <div style={styles.link}>
-              <div>設定</div>
-              <div>
-                <Button color='primary' style={styles.button} component={Link} to='/account/info'>
-                  基本設定
-                </Button>
-                <Button color='primary' style={styles.button} component={Link} to='/account/notification'>
-                  通知設定
-                </Button>
-                <Button color='primary' style={styles.button} component={Link} to='/account/password'>
-                  パスワード変更
-                </Button>
-              </div>
-            </div>
           </div>
         </div>
         <ProOnBoarding onRef={ref => onboarding = ref} />

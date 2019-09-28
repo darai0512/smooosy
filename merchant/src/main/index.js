@@ -26,21 +26,7 @@ import ReactGA from 'react-ga'
 import moment from 'moment'
 import { rolloutDates, BQEventTypes } from '@smooosy/config'
 
-/*
-// Detect useless rendering. Many logs output. Therefore, partially use is recommend.(Use in need check file)
-import { whyDidYouUpdate } from 'why-did-you-update'
-if (process.env.TARGET_ENV !== 'production') {
-  whyDidYouUpdate(React)
-}
-*/
-
 const client = axios.create()
-
-ReactGA.initialize(process.env.TARGET_ENV === 'production' ? 'UA-97635974-1' : 'UA-97635974-2', {
-  debug: process.env.TARGET_ENV !== 'production',
-  titleCase: false,
-  gaOptions: { siteSpeedSampleRate: 100, useAmpClientId: true},
-})
 
 const history = createBrowserHistory({
   getUserConfirmation(message, callback) {

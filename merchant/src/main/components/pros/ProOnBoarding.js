@@ -40,7 +40,7 @@ export default class ProOnBoarding extends React.Component {
   }
 
   handleNext = () => {
-    if (this.state.activeStep === 4) {
+    if (this.state.activeStep === 3) {
       return this.handleClose()
     }
     this.setState({
@@ -89,11 +89,10 @@ export default class ProOnBoarding extends React.Component {
           <DialogContent>
             <div style={{marginBottom: 24}}>
               <div style={styles.head}>
-                <div style={{color: activeStep === 0 ? grey[800] : grey[300]}}>1. SMOOOSYは地域のプロと依頼者のマッチングサービスです</div>
-                <div style={{color: activeStep === 1 ? grey[800] : grey[300]}}>2. 条件に合った依頼が依頼者から送られてきます</div>
-                <div style={{color: activeStep === 2 ? grey[800] : grey[300]}}>3. 依頼に対し応募をします（初回無料）</div>
-                <div style={{color: activeStep === 3 ? grey[800] : grey[300]}}>4. 応募後、依頼者と直接依頼の打ち合わせができるようになります</div>
-                <div style={{color: activeStep === 4 ? grey[800] : grey[300]}}>5. 月額費・成約手数料は無料です</div>
+                <div style={{color: activeStep === 0 ? grey[800] : grey[300]}}>1. SMOOOSYはお店と近くにいる見込み客とのマッチングサービスです</div>
+                <div style={{color: activeStep === 1 ? grey[800] : grey[300]}}>2. ドタキャン発生時など、お好きなタイミングで募集をかけられます（無料）</div>
+                <div style={{color: activeStep === 2 ? grey[800] : grey[300]}}>3. 成約後はお客様とのメッセージ・通話が可能です</div>
+                <div style={{color: activeStep === 3 ? grey[800] : grey[300]}}>4. 月額10,000円・成約手数料は5%です</div>
               </div>
               {activeStep === 0 ?
                 <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
@@ -101,24 +100,16 @@ export default class ProOnBoarding extends React.Component {
                 </div>
               : activeStep === 1 ?
                 <div style={{display: 'flex', flexDirection: width === 'xs' ? 'column' : 'row', justifyContent: 'center', alignItems: width === 'xs' ? 'center' : 'flex-start'}}>
-                  <img alt='依頼例' src='/images/request.png' style={{marginRight: width === 'xs' ? 0 : 5, border: `1px ${grey[500]} solid`, width: 150, height: 100 }} />
-                  <img alt='依頼例詳細' src='/images/request_detail.png' style={{marginTop: width === 'xs' ? 20 : 0, marginLeft: width === 'xs' ? 0 : 5, border: `1px ${grey[500]} solid`, width: 180, height: 224 }} />
+                  <img alt='依頼例詳細' src='/images/request_detail.png' style={{marginTop: width === 'xs' ? 20 : 0, marginLeft: width === 'xs' ? 0 : 5, border: `1px ${grey[500]} solid`, width: 210, height: 180 }} />
                 </div>
               : activeStep === 2 ?
                 <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-                  依頼への応募にはSMOOOSYポイント(応募手数料)の購入が必要です。初回応募時はお試しで無料となっております。応募に必要なSMOOOSYポイントは、依頼の確度に基づいてシステムで算出しているため、案件ごとに異なります。また、1つの依頼に対して最大で5事業者までが応募できます。
-                  <Link style={{marginTop: 20}} to='/pro-center/point' target='_blank'>SMOOOSYポイントとは？</Link>
-                  <img alt='応募例' src='/images/meets.png' style={{border: `1px ${grey[500]} solid`, marginTop: 20, width: 250, height: 223 }} />
-                </div>
-              : activeStep === 3 ?
-                <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-                  応募後、依頼者とチャット形式で依頼の詳細の打ち合わせができます。依頼者が決定すると成約となります。
                   <img alt='成約' src='/images/progress.png' style={{border: `1px ${grey[500]} solid`, marginTop: 20, width: width === 'xs' ? 250 : 400, height: width === 'xs' ? 183 : 294 }} />
                 </div>
               :
                 <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
                   <img src='/images/ri_02.svg' style={{width: 72, height: 72}}/>
-                  応募時以外の費用はかかりません。ご安心してお使いください。
+                  登録は無料で、サービス利用時のみ有料となります。必要な時にご利用ください。
                 </div>
               }
             </div>
@@ -126,12 +117,12 @@ export default class ProOnBoarding extends React.Component {
           <DialogActions disableSpacing className={classes.actions}>
             <MobileStepper
               variant='dots'
-              steps={5}
+              steps={4}
               position='static'
               activeStep={activeStep}
               nextButton={
                 <Button size='small' color='primary' onClick={this.handleNext}>
-                  {activeStep === 4 ? '閉じる' : '次へ'}
+                  {activeStep === 3 ? '閉じる' : '次へ'}
                   <KeyboardArrowRight />
                 </Button>
               }

@@ -171,7 +171,7 @@ export default class RequestList extends React.Component {
     return (
       <>
         <Helmet>
-          <title>新規案件一覧</title>
+          <title>成約一覧</title>
         </Helmet>
         <div>
           <Container>
@@ -179,7 +179,7 @@ export default class RequestList extends React.Component {
               <CampaignBanner />
               {!signupMode && <div style={styles.cards}><TaskBar /></div>}
               {!signupMode && <div style={styles.cards}><StarterGuide /></div>}
-              <Typography variant='h6' style={{display: 'flex', alignItems: 'center', margin: '30px 10px 10px'}}>新規案件一覧</Typography>
+              <Typography variant='h6' style={{display: 'flex', alignItems: 'center', margin: '30px 10px 10px'}}>成約一覧</Typography>
               <div style={{display: 'flex', flexDirection: 'row'}}>
                 <div style={styles.content}>
                   {showRequestFilters && <RequestFilters
@@ -200,13 +200,9 @@ export default class RequestList extends React.Component {
                       </div>
                       :
                       <div>
-                        <div style={{margin: 10}}>新規の案件はありません</div>
-                        <div style={{margin: 10}}>
-                          <div>対応サービスを見直して案件を受け取りましょう。</div>
-                          <div>選択したサービスの案件のみが届きます。</div>
-                        </div>
-                        <Button style={{margin: 10}} variant='contained' color='primary' component={Link} to='/account/services'>
-                          サービス一覧から受け取り条件を編集
+                        <div style={{margin: 10}}>成約した案件はありません</div>
+                        <Button style={{margin: 10}} variant='contained' color='primary' component={Link} to='/pros/new-requests'>
+                          新規募集
                         </Button>
                       </div>}
                     </div>

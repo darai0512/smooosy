@@ -38,8 +38,8 @@ function LoggedInHeader(props) {
   let leftMenu, rightMenu, iconMenu
   if (proMode) {
     leftMenu = [
-      { text: '新規案件', path: '/pros/requests' },
-      { text: '見積済み案件', path: '/pros/waiting' },
+      { text: '新規募集', path: '/pros/new-requests' },
+      { text: '募集履歴', path: '/pros/waiting' },
       { text: 'ダッシュボード', path: '/pros' },
     ]
     rightMenu = []
@@ -57,7 +57,7 @@ function LoggedInHeader(props) {
       { text: 'アカウント設定', path: '/account' },
       { text: 'ログアウト', path: '/logout' },
     ]
-    if (user.pro) iconMenu.splice(1, 0, { text: 'プロに切り替え', path: '/pros', arrow: true })
+    if (user.pro) iconMenu.splice(1, 0, { text: '事業者に切り替え', path: '/pros', arrow: true })
   }
 
   if (width === 'xs') {
